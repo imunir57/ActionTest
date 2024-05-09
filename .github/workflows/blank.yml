@@ -19,7 +19,7 @@ jobs:
       run: |
         $basePath = "C:\path\to"
         $relativePath = "subfolder"
-        $fullPath = Join-Path -Path $basePath -ChildPath $relativePath
+        $fullPath = Join-Path $basePath $relativePath
         Write-Output "::set-output name=full_path::$fullPath"
 
     - name: Display Full Path
