@@ -18,7 +18,7 @@ jobs:
       shell: pwsh
       run: |
         $basePath = "C:\path\to"
-        $fullPath = Join-Path $basePath "subfolder"
+        $fullPath = Join-Path $basePath 'subfolder'
         Write-Output "::set-output name=full_path::$fullPath"
 
     - name: Display Full Path
