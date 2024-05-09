@@ -19,8 +19,8 @@ jobs:
       run: |
         $basePath = "C:\path\to"
         $fullPath = join-path $basePath 'Common7\IDE\CommonExtensions\Microsoft\TestWindow'
-        echo "action_state=$fullPath" >> "$GITHUB_ENV"
+        echo "action_state=$fullPath" >> $GITHUB_ENV
 
     - name: Display Full Path
       run: |
-        Write-Output "Full Path: $action_state"
+        Write-Output "Full Path: $env.action_state"
