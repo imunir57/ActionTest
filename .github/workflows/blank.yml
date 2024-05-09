@@ -1,0 +1,27 @@
+name: Join Paths Example
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  join-paths:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Join Paths
+      id: join_paths
+      shell: pwsh
+      run: |
+        $basePath = "C:\path\to"
+        $relativePath = "subfolder"
+        $fullPath = Join-Path -Path $basePath -ChildPath $relativePath
+        Write-Output "::set-output name=full_path::$fullPath"
+
+    - name: Display Full Path
+      run: |
+        Write-Output "Full Path: ${{ steps.join_paths.outputs.full_path }}"
